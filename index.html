@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
             --bg-card: rgba(10, 15, 30, 0.55);
             --bg-card-hover: rgba(16, 24, 48, 0.7);
             --border-card: rgba(255, 255, 255, 0.05);
-            --accent: #49335a; /* Howli Red/Orange Accent for premium feel */
+            --accent: #49335a; /* Howli Purple Accent */
             --accent-glow: rgba(73, 51, 90, 0.15);
             --accent-rgb: 73, 51, 90;
             --meta-color: #1877F2;
@@ -433,7 +433,7 @@
         }
 
         .premium-table tr.total-row {
-            background: rgba(73, 51, 90, 0.04);
+            background: rgba(73, 51, 90, 0.06);
             font-weight: 700;
         }
 
@@ -677,6 +677,7 @@
                     <li class="nav-item" data-target="google-ads" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#google-ads"><span contenteditable="true">Google Ads</span></a></li>
                     <li class="nav-item" data-target="google-keywords" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#google-keywords"><span contenteditable="true">Palavras-Chaves</span></a></li>
                     <li class="nav-item" data-target="competitors" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#competitors"><span contenteditable="true">Concorrentes</span></a></li>
+                    <li class="nav-item" data-target="investimentos" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#investimentos"><span contenteditable="true">Investimento Total</span></a></li>
                     <li class="nav-item" data-target="finalizacao" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#finalizacao"><span contenteditable="true">Agradecimento</span></a></li>
                 </ul>
             </nav>
@@ -1317,12 +1318,24 @@
             </div>
         </section>
 
-        <!-- FINALIZATION SECTION -->
-        <section id="finalizacao" class="section-block">
-            <div class="final-presentation-block">
-                <h2 class="thank-you-title" contenteditable="true">Muito obrigado pela parceria!</h2>
+        <!-- INVESTMENTS SECTION -->
+        <section id="investimentos" class="section-block">
+            <div class="dash-header">
+                <div>
+                    <h2 contenteditable="true">Investimento Total</h2>
+                    <p contenteditable="true">Resumo financeiro dos investimentos em mídia paga - Maio 2026</p>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-header">
+                    <div class="card-title" contenteditable="true">
+                        <div class="card-title-icon" style="background: var(--accent)"></div>
+                        Distribuição do Orçamento
+                    </div>
+                </div>
                 
-                <div class="kpi-grid" style="width: 100%; max-width: 900px; margin-top: 1rem; margin-bottom: 3rem;">
+                <div class="kpi-grid" style="width: 100%; margin-top: 1rem;">
                     <div class="kpi-card" style="--accent: var(--meta-color)">
                         <div class="kpi-label" contenteditable="true">Investimento Meta Ads</div>
                         <div class="kpi-value" contenteditable="true">R$ 26.353,41</div>
@@ -1339,11 +1352,18 @@
                         <div class="kpi-subtext" contenteditable="true">Retorno sobre investimento em leads</div>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <!-- FINALIZATION SECTION -->
+        <section id="finalizacao" class="section-block">
+            <div class="final-presentation-block">
+                <h2 class="thank-you-title" contenteditable="true">Muito obrigado pela parceria!</h2>
+                
                 <div class="final-branding-card" style="background: transparent; border: none; padding: 0;">
                     <!-- Closing Signature Block -->
                     <div class="closing-footer-layout">
-                        <img src="logo-howli.png" style="height: 35px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(73,51,90,0.3));" alt="Howli Logo">
+                        <img src="logo-howli.png" style="height: 35px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(73, 51, 90, 0.3));" alt="Howli Logo">
                         <div class="footer-logo-mike" style="margin-left: -0.5rem;" contenteditable="true">HOWLI</div>
                         <div class="closing-divider"></div>
                         <div style="text-align: left; font-size: 0.8rem; color: var(--text-muted);">
@@ -1456,7 +1476,6 @@
     const rawKeywords = "banheira com hidro e aquecedor, banheira com Hidro em belo horizonte, banheira com instalação inclusa, banheira de canto, banheira de canto com hidro, banheira de hidro 4 lugares, banheira de hidro 4 lugares, banheira de hidro 4 lugares, banheira de hidro 4 lugares, banheira de hidro 4 lugares, banheira de hidro 6 lugares, banheira de hidro 6 lugares, banheira de hidro 6 lugares, banheira de hidro 6 lugares, banheira de hidro 6 lugares, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidromassagem, banheira de hidromassagem, banheira de hidromassagem, banheira de hidromassagem ofurô, banheira de hidromassagem ofurô, banheira de hidromassagem ofurô, banheira de hidromassagem ofurô, banheira de hidromassagem ofurô, banheira de hidromassagem preço, banheira de hidromassagem valor, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de luxo, banheira dupla, banheira externa, banheira externa, banheira externa, banheira externa, banheira externa, banheira hidro, banheira hidro externa, banheira hidro externa, banheira hidro externa, banheira hidro externa, banheira hidro externa, banheira hidro externa, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem area externa, banheira individual, banheira infantil de hidromassagem, banheira jacuzzi, banheira jacuzzi, banheira jacuzzi, banheira jacuzzi, banheira jacuzzi, banheira ofuro, banheira para área externa, banheira para casa, banheira pronta entrega, banheira redonda, banheira redonda para casal, banheira retangular, banheira retangular com aquecimento, banheira spa, banheira spa, banheira spa, banheira spa, banheira spa, banheira spa, banheira spa externa, banheira spa externa, banheira spa externa, banheira spa externa, banheira spa externa, banheira spa externa, banheira vitoriana, comprar banheira de hidromassagem, comprar jacuzzi, comprar jacuzzi, comprar jacuzzi, comprar jacuzzi, comprar jacuzzi, hidro jacuzzi, hidro jacuzzi, hidro jacuzzi, hidro jacuzzi, hidro jacuzzi, hidro jacuzzi, spa hidro, spa hidro, spa hidro, spa hidro, spa hidro, spa hidro, hidromassagem completa, hidromassagem completa, hidromassagem completa, hidromassagem completa, hidromassagem completa, hidromassagem completa, hidromassagem externa, hidromassagem externa, hidromassagem externa, hidromassagem externa, hidromassagem externa, hidromassagem externa, jacuzzi, jacuzzi, jacuzzi, jacuzzi, jacuzzi, jacuzzi, jacuzzi 2 pessoas, jacuzzi 2 pessoas, jacuzzi 2 pessoas, jacuzzi 2 pessoas, jacuzzi 2 pessoas, jacuzzi 4 lugares, jacuzzi 4 lugares, jacuzzi 4 lugares, jacuzzi 4 lugares, jacuzzi 4 lugares, jacuzzi 4 pessoas, jacuzzi 4 pessoas, jacuzzi 4 pessoas, jacuzzi 4 pessoas, jacuzzi 4 pessoas, jacuzzi 6 lugares, jacuzzi 6 lugares, jacuzzi 6 lugares, jacuzzi 6 lugares, jacuzzi 6 lugares, jacuzzi 6 pessoas, jacuzzi 6 pessoas, jacuzzi 6 pessoas, jacuzzi 6 pessoas, jacuzzi 6 pessoas, jacuzzi 8 lugares, jacuzzi 8 lugares, jacuzzi 8 lugares, jacuzzi 8 lugares, jacuzzi 8 lugares, jacuzzi 8 pessoas, jacuzzi 8 pessoas, jacuzzi 8 pessoas, jacuzzi 8 pessoas, jacuzzi 8 pessoas, jacuzzi em campinas, jacuzzi externa, jacuzzi externa, jacuzzi externa, jacuzzi externa, jacuzzi externa, jacuzzi jundiai, jacuzzi limeira, jacuzzi piracicaba, jacuzzi preço, jacuzzi preço, jacuzzi preço, jacuzzi preço, jacuzzi preço, jacuzzi sorocaba, jacuzzi spa, jacuzzi spa, jacuzzi spa, jacuzzi spa, jacuzzi spa, melhores banheiras para residência, ofurô, ofuro 4 lugares, ofuro 4 lugares, ofuro 4 lugares, ofuro 4 lugares, ofuro 4 lugares, ofuro 4 pessoas, ofuro 4 pessoas, ofuro 4 pessoas, ofuro 4 pessoas, ofuro 4 pessoas, ofuro 6 pessoas, ofuro 6 pessoas, ofuro 6 pessoas, ofuro 6 pessoas, ofuro 6 pessoas, ofuro 8 lugares, ofuro 8 lugares, ofuro 8 lugares, ofuro 8 lugares, ofuro 8 lugares, ofuro 8 pessoas, ofuro 8 pessoas, ofuro 8 pessoas, ofuro 8 pessoas, ofuro 8 pessoas, ofuro area externa, ofuro area externa, ofuro area externa, ofuro area externa, ofuro area externa, ofuro area externa, ofuro banheira, ofuro com hidro e aquecedor, ofuro com hidro e aquecedor, ofuro com hidro e aquecedor, ofuro com hidro e aquecedor, ofuro com hidro e aquecedor, ofurô de madeira, ofuro em campinas, ofuro externo, ofuro externo, ofuro externo, ofuro externo, ofuro externo, ofurô externo, ofuro externo preço, ofuro externo preço, ofuro externo preço, ofuro externo preço, ofuro externo preço, ofuro jundiai, ofuro limeira, ofuro piracicaba, ofuro preço, ofuro preço, ofuro preço, ofuro preço, ofuro preço, ofuro sorocaba, ofuro valor, ofuro valor, ofuro valor, ofuro valor, ofuro valor, ofuro valor, onde comprar banheira spa, orçamento banheira de hidromassagem, spa banheira, spa banheira, spa banheira, spa banheira, spa banheira, spa banheira, Spa com Hidro, spa com hidro e aquecedor, spa com hidro e aquecedor, spa com hidro e aquecedor, spa com hidro e aquecedor, spa com hidro e aquecedor, spa com hidro e aquecedor, spa hidro, spa hidro, spa hidro, spa hidro, spa hidro, spa hidro, spa ofuro, spas em campinas, spas jundiai, spas limeira, spas piracicaba, spas sorocaba, valor de ofurô, valor de ofurô, valor de ofurô, valor de ofurô, valor de ofurô";
     
     const container = document.getElementById('keywordContainer');
-    // Deduplicate and clean keywords
     const keywordsSet = new Set(rawKeywords.split(',').map(kw => kw.trim()));
     keywordsSet.forEach(kw => {
         if (kw) {
