@@ -95,12 +95,8 @@
             width: 100%;
             border-radius: 10px;
             transition: all 0.3s ease;
-            cursor: grab;
+            cursor: pointer;
             border: 1px solid transparent;
-        }
-        
-        .nav-item:active {
-            cursor: grabbing;
         }
 
         .nav-item a {
@@ -121,11 +117,6 @@
             background: rgba(73, 51, 90, 0.08);
             border-left: 3px solid var(--accent);
             padding-left: calc(0.85rem - 3px);
-        }
-
-        .nav-item.drag-over {
-            border: 1px dashed var(--accent);
-            background: rgba(73, 51, 90, 0.04);
         }
 
         .footer-branding {
@@ -687,16 +678,9 @@
 
             .nav-list {
                 flex-direction: row;
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 0.5rem;
+                flex-wrap: wrap; /* Allows wrapping on mobile instead of horizontal single line scroll */
+                justify-content: center;
                 gap: 0.5rem;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none; /* Firefox */
-            }
-
-            .nav-list::-webkit-scrollbar {
-                display: none; /* Safari and Chrome */
             }
 
             .nav-item {
@@ -705,15 +689,21 @@
             }
 
             .nav-item a {
-                padding: 0.5rem 0.85rem;
-                font-size: 0.825rem;
+                padding: 0.4rem 0.7rem;
+                font-size: 0.8rem;
+                border-radius: 6px;
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid var(--border-card);
             }
 
             .nav-item.active a, .nav-item a:hover {
                 border-left: none;
-                border-bottom: 3px solid var(--accent);
-                padding-left: 0.85rem;
-                padding-bottom: calc(0.5rem - 3px);
+                border-bottom: none;
+                background: rgba(73, 51, 90, 0.25);
+                border-color: var(--accent);
+                color: #fff;
+                padding-left: 0.7rem;
+                padding-bottom: 0.4rem;
             }
 
             .fullscreen-btn, .footer-branding {
@@ -724,7 +714,7 @@
                 padding: 1.5rem 1rem;
             }
 
-            /* FORCE 2 CARDS/COLUMNS PER ROW ON MOBILE (AS EXPLICITLY REQUESTED) */
+            /* FORCE 2 CARDS/COLUMNS PER ROW ON MOBILE */
             .kpi-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 0.75rem !important;
@@ -845,19 +835,19 @@
         <div>
             <div class="logo-area">
                 <img src="logo-howli.png" class="logo-img" alt="Howli Logo">
-                <div class="logo-text" contenteditable="true">HOWLI</div>
+                <div class="logo-text">HOWLI</div>
             </div>
             
             <nav>
                 <ul class="nav-list" id="sidebarNavList">
-                    <li class="nav-item active" data-target="cover" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#cover"><span contenteditable="true">Capa do Relatório</span></a></li>
-                    <li class="nav-item" data-target="meta-ads" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#meta-ads"><span contenteditable="true">Meta Ads</span></a></li>
-                    <li class="nav-item" data-target="meta-creatives" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#meta-creatives"><span contenteditable="true">Melhores Criativos</span></a></li>
-                    <li class="nav-item" data-target="google-ads" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#google-ads"><span contenteditable="true">Google Ads</span></a></li>
-                    <li class="nav-item" data-target="google-keywords" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#google-keywords"><span contenteditable="true">Palavras-Chaves</span></a></li>
-                    <li class="nav-item" data-target="competitors" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#competitors"><span contenteditable="true">Concorrentes</span></a></li>
-                    <li class="nav-item" data-target="investimentos" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#investimentos"><span contenteditable="true">Investimento Total</span></a></li>
-                    <li class="nav-item" data-target="finalizacao" draggable="true" ondragstart="handleDragStart(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragend="handleDragEnd(event)"><a href="#finalizacao"><span contenteditable="true">Agradecimento</span></a></li>
+                    <li class="nav-item active" data-target="cover"><a href="#cover"><span>Capa do Relatório</span></a></li>
+                    <li class="nav-item" data-target="meta-ads"><a href="#meta-ads"><span>Meta Ads</span></a></li>
+                    <li class="nav-item" data-target="meta-creatives"><a href="#meta-creatives"><span>Melhores Criativos</span></a></li>
+                    <li class="nav-item" data-target="google-ads"><a href="#google-ads"><span>Google Ads</span></a></li>
+                    <li class="nav-item" data-target="google-keywords"><a href="#google-keywords"><span>Palavras-Chaves</span></a></li>
+                    <li class="nav-item" data-target="competitors"><a href="#competitors"><span>Concorrentes</span></a></li>
+                    <li class="nav-item" data-target="investimentos"><a href="#investimentos"><span>Investimento Total</span></a></li>
+                    <li class="nav-item" data-target="finalizacao"><a href="#finalizacao"><span>Agradecimento</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -869,8 +859,8 @@
             </button>
             
             <div class="footer-branding">
-                <strong contenteditable="true">Maio 2026</strong>
-                <span contenteditable="true">Performance Dashboard</span>
+                <strong>Maio 2026</strong>
+                <span>Performance Dashboard</span>
             </div>
         </div>
     </aside>
@@ -880,23 +870,23 @@
         <!-- COVER SECTION -->
         <section id="cover" class="section-block active">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
-                <div class="cover-badge" contenteditable="true">🏆 Dashboard de Performance</div>
+                <div class="cover-badge">🏆 Dashboard de Performance</div>
             </div>
             
             <div class="cover-content" style="margin-top: 4rem;">
                 <div class="cover-left">
-                    <h1 contenteditable="true">Relatório de Tráfego Pago</h1>
-                    <p style="font-size: 2.2rem; color: #fff; margin-bottom: 0.75rem; font-family: 'Outfit'; font-weight: 700;" contenteditable="true">Aqualax</p>
-                    <p style="font-size: 1.15rem; color: var(--text-muted); font-weight: 300; margin-bottom: 4rem;" contenteditable="true">Análise estratégica de tráfego pago, geração de leads para WhatsApp e Rede de Pesquisa no período de Maio de 2026.</p>
+                    <h1>Relatório de Tráfego Pago</h1>
+                    <p style="font-size: 2.2rem; color: #fff; margin-bottom: 0.75rem; font-family: 'Outfit'; font-weight: 700;">Aqualax</p>
+                    <p style="font-size: 1.15rem; color: var(--text-muted); font-weight: 300; margin-bottom: 4rem;">Análise estratégica de tráfego pago, geração de leads para WhatsApp e Rede de Pesquisa no período de Maio de 2026.</p>
                     
                     <!-- Cover Signature Block -->
                     <div class="closing-footer-layout" style="justify-content: flex-start; margin-top: 2rem;">
                         <img src="logo-howli.png" style="height: 35px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(73, 51, 90, 0.3));" alt="Howli Logo">
-                        <div class="footer-logo-mike" style="margin-left: -0.5rem;" contenteditable="true">HOWLI</div>
+                        <div class="footer-logo-mike" style="margin-left: -0.5rem;">HOWLI</div>
                         <div class="closing-divider"></div>
                         <div style="text-align: left; font-size: 0.8rem; color: var(--text-muted);">
-                            <strong style="color: #fff; display: block; margin-bottom: 0.25rem;" contenteditable="true">AQUALAX</strong>
-                            <span contenteditable="true">Gestão de Mídia & Analytics | Maio 2026</span>
+                            <strong style="color: #fff; display: block; margin-bottom: 0.25rem;">AQUALAX</strong>
+                            <span>Gestão de Mídia & Analytics | Maio 2026</span>
                         </div>
                     </div>
                 </div>
@@ -912,42 +902,42 @@
         <section id="meta-ads" class="section-block">
             <div class="dash-header">
                 <div>
-                    <h2 contenteditable="true">Meta Ads (Facebook / Instagram)</h2>
-                    <p contenteditable="true">Resultados da campanha de mensagens WhatsApp 9078 - Maio 2026</p>
+                    <h2>Meta Ads (Facebook / Instagram)</h2>
+                    <p>Resultados da campanha de mensagens WhatsApp 9078 - Maio 2026</p>
                 </div>
             </div>
 
             <div class="kpi-grid">
                 <div class="kpi-card" style="--accent: var(--meta-color)">
-                    <div class="kpi-label" contenteditable="true">Impressões</div>
-                    <div class="kpi-value" contenteditable="true">1.643.094</div>
-                    <div class="kpi-subtext" contenteditable="true">Visualizações dos anúncios</div>
+                    <div class="kpi-label">Impressões</div>
+                    <div class="kpi-value">1.643.094</div>
+                    <div class="kpi-subtext">Visualizações dos anúncios</div>
                 </div>
                 <div class="kpi-card" style="--accent: var(--meta-color)">
-                    <div class="kpi-label" contenteditable="true">Pessoas Alcançadas</div>
-                    <div class="kpi-value" contenteditable="true">721.480</div>
-                    <div class="kpi-subtext" contenteditable="true">Alcance único da campanha</div>
+                    <div class="kpi-label">Pessoas Alcançadas</div>
+                    <div class="kpi-value">721.480</div>
+                    <div class="kpi-subtext">Alcance único da campanha</div>
                 </div>
                 <div class="kpi-card" style="--accent: var(--meta-color)">
-                    <div class="kpi-label" contenteditable="true">Leads (Mensagens)</div>
-                    <div class="kpi-value" contenteditable="true">2.962</div>
-                    <div class="kpi-subtext" contenteditable="true">Contatos iniciados p/ WhatsApp</div>
+                    <div class="kpi-label">Leads (Mensagens)</div>
+                    <div class="kpi-value">2.962</div>
+                    <div class="kpi-subtext">Contatos iniciados p/ WhatsApp</div>
                 </div>
                 <div class="kpi-card" style="--accent: var(--meta-color)">
-                    <div class="kpi-label" contenteditable="true">Custo por Mensagem</div>
-                    <div class="kpi-value" contenteditable="true">R$ 8,90</div>
-                    <div class="kpi-subtext" contenteditable="true">Custo médio por conversa</div>
+                    <div class="kpi-label">Custo por Mensagem</div>
+                    <div class="kpi-value">R$ 8,90</div>
+                    <div class="kpi-subtext">Custo médio por conversa</div>
                 </div>
                 <div class="kpi-card" style="--accent: var(--meta-color)">
-                    <div class="kpi-label" contenteditable="true">Investimento</div>
-                    <div class="kpi-value" contenteditable="true">R$ 26.353,41</div>
-                    <div class="kpi-subtext" contenteditable="true">Investimento total no período</div>
+                    <div class="kpi-label">Investimento</div>
+                    <div class="kpi-value">R$ 26.353,41</div>
+                    <div class="kpi-subtext">Investimento total no período</div>
                 </div>
             </div>
 
             <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title" contenteditable="true">
+                    <div class="card-title">
                         <div class="card-title-icon" style="background: var(--meta-color)"></div>
                         Indicadores de Desempenho por Região
                     </div>
@@ -956,70 +946,70 @@
                     <table class="premium-table">
                         <thead>
                             <tr>
-                                <th contenteditable="true">Região</th>
-                                <th contenteditable="true">Impressões</th>
-                                <th contenteditable="true">Pessoas Alcançadas</th>
-                                <th contenteditable="true">Mensagens (Leads)</th>
-                                <th contenteditable="true">Custo por Mensagem</th>
-                                <th contenteditable="true">Investimento</th>
+                                <th>Região</th>
+                                <th>Impressões</th>
+                                <th>Pessoas Alcançadas</th>
+                                <th>Mensagens (Leads)</th>
+                                <th>Custo por Mensagem</th>
+                                <th>Investimento</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td contenteditable="true">Limeira e Região</td>
-                                <td contenteditable="true">283.348</td>
-                                <td contenteditable="true">100.802</td>
-                                <td contenteditable="true">266</td>
-                                <td contenteditable="true">R$ 12,88</td>
-                                <td contenteditable="true">R$ 3.425,21</td>
+                                <td>Limeira e Região</td>
+                                <td>283.348</td>
+                                <td>100.802</td>
+                                <td>266</td>
+                                <td>R$ 12,88</td>
+                                <td>R$ 3.425,21</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Campinas e Região</td>
-                                <td contenteditable="true">316.658</td>
-                                <td contenteditable="true">180.606</td>
-                                <td contenteditable="true">714</td>
-                                <td contenteditable="true">R$ 7,69</td>
-                                <td contenteditable="true">R$ 5.488,65</td>
+                                <td>Campinas e Região</td>
+                                <td>316.658</td>
+                                <td>180.606</td>
+                                <td>714</td>
+                                <td>R$ 7,69</td>
+                                <td>R$ 5.488,65</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Piracicaba e Região</td>
-                                <td contenteditable="true">369.239</td>
-                                <td contenteditable="true">149.445</td>
-                                <td contenteditable="true">422</td>
-                                <td contenteditable="true">R$ 12,65</td>
-                                <td contenteditable="true">R$ 5.338,92</td>
+                                <td>Piracicaba e Região</td>
+                                <td>369.239</td>
+                                <td>149.445</td>
+                                <td>422</td>
+                                <td>R$ 12,65</td>
+                                <td>R$ 5.338,92</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Sorocaba e Região</td>
-                                <td contenteditable="true">228.914</td>
-                                <td contenteditable="true">123.270</td>
-                                <td contenteditable="true">401</td>
-                                <td contenteditable="true">R$ 8,57</td>
-                                <td contenteditable="true">R$ 3.438,06</td>
+                                <td>Sorocaba e Região</td>
+                                <td>228.914</td>
+                                <td>123.270</td>
+                                <td>401</td>
+                                <td>R$ 8,57</td>
+                                <td>R$ 3.438,06</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Jundiaí e Região</td>
-                                <td contenteditable="true">234.565</td>
-                                <td contenteditable="true">116.194</td>
-                                <td contenteditable="true">447</td>
-                                <td contenteditable="true">R$ 10,06</td>
-                                <td contenteditable="true">R$ 4.498,15</td>
+                                <td>Jundiaí e Região</td>
+                                <td>234.565</td>
+                                <td>116.194</td>
+                                <td>447</td>
+                                <td>R$ 10,06</td>
+                                <td>R$ 4.498,15</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Região Showroom</td>
-                                <td contenteditable="true">210.370</td>
-                                <td contenteditable="true">128.524</td>
-                                <td contenteditable="true">712</td>
-                                <td contenteditable="true">R$ 5,85</td>
-                                <td contenteditable="true">R$ 4.164,42</td>
+                                <td>Região Showroom</td>
+                                <td>210.370</td>
+                                <td>128.524</td>
+                                <td>712</td>
+                                <td>R$ 5,85</td>
+                                <td>R$ 4.164,42</td>
                             </tr>
                             <tr class="total-row">
-                                <td contenteditable="true">Soma</td>
-                                <td contenteditable="true">1.643.094</td>
-                                <td contenteditable="true">721.480</td>
-                                <td contenteditable="true">2.962</td>
-                                <td contenteditable="true">R$ 8,90</td>
-                                <td contenteditable="true">R$ 26.353,41</td>
+                                <td>Soma</td>
+                                <td>1.643.094</td>
+                                <td>721.480</td>
+                                <td>2.962</td>
+                                <td>R$ 8,90</td>
+                                <td>R$ 26.353,41</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1028,7 +1018,7 @@
 
             <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title" contenteditable="true">
+                    <div class="card-title">
                         <div class="card-title-icon" style="background: var(--meta-color)"></div>
                         Comparativo MoM 2026
                     </div>
@@ -1037,59 +1027,59 @@
                     <table class="premium-table">
                         <thead>
                             <tr>
-                                <th contenteditable="true">Mês</th>
-                                <th contenteditable="true">Impressões</th>
-                                <th contenteditable="true">Pessoas Alcançadas</th>
-                                <th contenteditable="true">Leads (Mensagens)</th>
-                                <th contenteditable="true">Custo por Mensagem</th>
-                                <th contenteditable="true">Investimento</th>
+                                <th>Mês</th>
+                                <th>Impressões</th>
+                                <th>Pessoas Alcançadas</th>
+                                <th>Leads (Mensagens)</th>
+                                <th>Custo por Mensagem</th>
+                                <th>Investimento</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td contenteditable="true">Janeiro 2026</td>
-                                <td contenteditable="true">1.323.106</td>
-                                <td contenteditable="true">505.239</td>
-                                <td contenteditable="true">1.061</td>
-                                <td contenteditable="true">R$ 22,91</td>
-                                <td contenteditable="true">R$ 24.310,71</td>
+                                <td>Janeiro 2026</td>
+                                <td>1.323.106</td>
+                                <td>505.239</td>
+                                <td>1.061</td>
+                                <td>R$ 22,91</td>
+                                <td>R$ 24.310,71</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Fevereiro 2026</td>
-                                <td contenteditable="true">1.205.451</td>
-                                <td contenteditable="true">443.922</td>
-                                <td contenteditable="true">904</td>
-                                <td contenteditable="true">R$ 23,49</td>
-                                <td contenteditable="true">R$ 21.237,44</td>
+                                <td>Fevereiro 2026</td>
+                                <td>1.205.451</td>
+                                <td>443.922</td>
+                                <td>904</td>
+                                <td>R$ 23,49</td>
+                                <td>R$ 21.237,44</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Março 2026</td>
-                                <td contenteditable="true">1.341.792</td>
-                                <td contenteditable="true">476.760</td>
-                                <td contenteditable="true">1.103</td>
-                                <td contenteditable="true">R$ 24,03</td>
-                                <td contenteditable="true">R$ 26.506,86</td>
+                                <td>Março 2026</td>
+                                <td>1.341.792</td>
+                                <td>476.760</td>
+                                <td>1.103</td>
+                                <td>R$ 24,03</td>
+                                <td>R$ 26.506,86</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Abril 2026</td>
-                                <td contenteditable="true">1.686.463</td>
-                                <td contenteditable="true">702.707</td>
-                                <td contenteditable="true">1.894</td>
-                                <td contenteditable="true">R$ 13,50</td>
-                                <td contenteditable="true">R$ 25.573,23</td>
+                                <td>Abril 2026</td>
+                                <td>1.686.463</td>
+                                <td>702.707</td>
+                                <td>1.894</td>
+                                <td>R$ 13,50</td>
+                                <td>R$ 25.573,23</td>
                             </tr>
                             <tr class="total-row">
-                                <td contenteditable="true">Maio 2026</td>
-                                <td contenteditable="true">1.643.094</td>
-                                <td contenteditable="true">721.480</td>
-                                <td contenteditable="true">2.962</td>
-                                <td contenteditable="true">R$ 8,90</td>
-                                <td contenteditable="true">R$ 26.353,41</td>
+                                <td>Maio 2026</td>
+                                <td>1.643.094</td>
+                                <td>721.480</td>
+                                <td>2.962</td>
+                                <td>R$ 8,90</td>
+                                <td>R$ 26.353,41</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="note-text" contenteditable="true">*Alteração de todas as campanhas de DIRECT para WHATSAPP a partir de Outubro/25.</div>
+                <div class="note-text">*Alteração de todas as campanhas de DIRECT para WHATSAPP a partir de Outubro/25.</div>
             </div>
         </section>
 
@@ -1097,8 +1087,8 @@
         <section id="meta-creatives" class="section-block">
             <div class="dash-header">
                 <div>
-                    <h2 contenteditable="true">Melhores Criativos</h2>
-                    <p contenteditable="true">Criativos de destaque e volume de Leads por Região - Maio 2026</p>
+                    <h2>Melhores Criativos</h2>
+                    <p>Criativos de destaque e volume de Leads por Região - Maio 2026</p>
                 </div>
             </div>
 
@@ -1108,8 +1098,8 @@
                         <img src="extracted_img-0000.png" class="creative-img" alt="Limeira Criativo">
                     </div>
                     <div class="creative-info">
-                        <div class="creative-region" contenteditable="true">LIMEIRA</div>
-                        <div class="creative-leads" contenteditable="true">93 LEADS</div>
+                        <div class="creative-region">LIMEIRA</div>
+                        <div class="creative-leads">93 LEADS</div>
                     </div>
                 </div>
 
@@ -1118,8 +1108,8 @@
                         <img src="extracted_img-0001.png" class="creative-img" alt="Campinas Criativo">
                     </div>
                     <div class="creative-info">
-                        <div class="creative-region" contenteditable="true">CAMPINAS</div>
-                        <div class="creative-leads" contenteditable="true">150 LEADS</div>
+                        <div class="creative-region">CAMPINAS</div>
+                        <div class="creative-leads">150 LEADS</div>
                     </div>
                 </div>
 
@@ -1128,8 +1118,8 @@
                         <img src="extracted_img-0002.png" class="creative-img" alt="Piracicaba Criativo">
                     </div>
                     <div class="creative-info">
-                        <div class="creative-region" contenteditable="true">PIRACICABA</div>
-                        <div class="creative-leads" contenteditable="true">104 LEADS</div>
+                        <div class="creative-region">PIRACICABA</div>
+                        <div class="creative-leads">104 LEADS</div>
                     </div>
                 </div>
 
@@ -1138,8 +1128,8 @@
                         <img src="extracted_img-0003.png" class="creative-img" alt="Sorocaba Criativo">
                     </div>
                     <div class="creative-info">
-                        <div class="creative-region" contenteditable="true">SOROCABA</div>
-                        <div class="creative-leads" contenteditable="true">88 LEADS</div>
+                        <div class="creative-region">SOROCABA</div>
+                        <div class="creative-leads">88 LEADS</div>
                     </div>
                 </div>
 
@@ -1148,8 +1138,8 @@
                         <img src="extracted_img-0004.png" class="creative-img" alt="Jundiaí Criativo">
                     </div>
                     <div class="creative-info">
-                        <div class="creative-region" contenteditable="true">JUNDIAÍ</div>
-                        <div class="creative-leads" contenteditable="true">163 LEADS</div>
+                        <div class="creative-region">JUNDIAÍ</div>
+                        <div class="creative-leads">163 LEADS</div>
                     </div>
                 </div>
 
@@ -1158,8 +1148,8 @@
                         <img src="extracted_img-0005.png" class="creative-img" alt="Showroom Criativo">
                     </div>
                     <div class="creative-info">
-                        <div class="creative-region" contenteditable="true">SHOWROOM</div>
-                        <div class="creative-leads" contenteditable="true">469 LEADS</div>
+                        <div class="creative-region">SHOWROOM</div>
+                        <div class="creative-leads">469 LEADS</div>
                     </div>
                 </div>
             </div>
@@ -1169,61 +1159,61 @@
         <section id="google-ads" class="section-block">
             <div class="dash-header">
                 <div>
-                    <h2 contenteditable="true">Google Ads</h2>
-                    <p contenteditable="true">Campanhas de Rede de Pesquisa & P.Max - Maio 2026</p>
+                    <h2>Google Ads</h2>
+                    <p>Campanhas de Rede de Pesquisa & P.Max - Maio 2026</p>
                 </div>
             </div>
 
             <div class="kpi-grid">
                 <div class="kpi-card" style="--accent: var(--google-color)">
-                    <div class="kpi-label" contenteditable="true">Impressões</div>
-                    <div class="kpi-value" contenteditable="true">60.515</div>
-                    <div class="kpi-subtext" contenteditable="true">Visualizações nas buscas</div>
+                    <div class="kpi-label">Impressões</div>
+                    <div class="kpi-value">60.515</div>
+                    <div class="kpi-subtext">Visualizações nas buscas</div>
                 </div>
                 <div class="kpi-card" style="--accent: var(--google-color)">
-                    <div class="kpi-label" contenteditable="true">Cliques</div>
-                    <div class="kpi-value" contenteditable="true">1.953</div>
-                    <div class="kpi-subtext" contenteditable="true">Cliques e engajamentos</div>
+                    <div class="kpi-label">Cliques</div>
+                    <div class="kpi-value">1.953</div>
+                    <div class="kpi-subtext">Cliques e engajamentos</div>
                 </div>
                 <div class="kpi-card" style="--accent: var(--google-color)">
-                    <div class="kpi-label" contenteditable="true">Conversões (Leads)</div>
-                    <div class="kpi-value" contenteditable="true">188</div>
-                    <div class="kpi-subtext" contenteditable="true">Botão Whatsapp ou Formulário</div>
+                    <div class="kpi-label">Conversões (Leads)</div>
+                    <div class="kpi-value">188</div>
+                    <div class="kpi-subtext">Botão Whatsapp ou Formulário</div>
                 </div>
                 <div class="kpi-card" style="--accent: var(--google-color)">
-                    <div class="kpi-label" contenteditable="true">Custo por Conversão</div>
-                    <div class="kpi-value" contenteditable="true">R$ 103,89</div>
-                    <div class="kpi-subtext" contenteditable="true">Custo médio por lead gerado</div>
+                    <div class="kpi-label">Custo por Conversão</div>
+                    <div class="kpi-value">R$ 103,89</div>
+                    <div class="kpi-subtext">Custo médio por lead gerado</div>
                 </div>
                 <div class="kpi-card" style="--accent: var(--google-color)">
-                    <div class="kpi-label" contenteditable="true">Investimento</div>
-                    <div class="kpi-value" contenteditable="true">R$ 19.532,22</div>
-                    <div class="kpi-subtext" contenteditable="true">Investimento total no Google</div>
+                    <div class="kpi-label">Investimento</div>
+                    <div class="kpi-value">R$ 19.532,22</div>
+                    <div class="kpi-subtext">Investimento total no Google</div>
                 </div>
             </div>
 
             <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title" contenteditable="true">
+                    <div class="card-title">
                         <div class="card-title-icon" style="background: var(--google-color)"></div>
                         Estratégia & Objetivo
                     </div>
                 </div>
                 <div class="strategy-container">
                     <div class="strategy-block">
-                        <h4 contenteditable="true">Objetivo Principal</h4>
-                        <p contenteditable="true">Gerar conversões de leads no site oficial da Aqualax.</p>
+                        <h4>Objetivo Principal</h4>
+                        <p>Gerar conversões de leads no site oficial da Aqualax.</p>
                     </div>
                     <div class="strategy-block">
-                        <h4 contenteditable="true">Estratégia Executada</h4>
-                        <p contenteditable="true">Utilização de campanhas de Rede de Pesquisa para capturar usuários interessados diretamente no WhatsApp ou formulário institucional. Além disso, dividimos as campanhas por cidades e suas regiões para criar anúncios específicos.</p>
+                        <h4>Estratégia Executada</h4>
+                        <p>Utilização de campanhas de Rede de Pesquisa para capturar usuários interessados diretamente no WhatsApp ou formulário institucional. Além disso, dividimos as campanhas por cidades e suas regiões para criar anúncios específicos.</p>
                     </div>
                 </div>
             </div>
 
             <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title" contenteditable="true">
+                    <div class="card-title">
                         <div class="card-title-icon" style="background: var(--google-color)"></div>
                         Desempenho por Campanha
                     </div>
@@ -1232,101 +1222,101 @@
                     <table class="premium-table">
                         <thead>
                             <tr>
-                                <th contenteditable="true">Campanhas</th>
-                                <th contenteditable="true">Impressões</th>
-                                <th contenteditable="true">Cliques</th>
-                                <th contenteditable="true">Custo por Clique</th>
-                                <th contenteditable="true">Conversão</th>
-                                <th contenteditable="true">Custo por Conversão</th>
-                                <th contenteditable="true">Investimento</th>
+                                <th>Campanhas</th>
+                                <th>Impressões</th>
+                                <th>Cliques</th>
+                                <th>Custo por Clique</th>
+                                <th>Conversão</th>
+                                <th>Custo por Conversão</th>
+                                <th>Investimento</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td contenteditable="true">[P. Max] Leads RMC + Sor + Pira + Lim + Jund</td>
-                                <td contenteditable="true">10.287</td>
-                                <td contenteditable="true">616</td>
-                                <td contenteditable="true">R$ 4,65</td>
-                                <td contenteditable="true">59</td>
-                                <td contenteditable="true">R$ 35,21</td>
-                                <td contenteditable="true">R$ 2.077,51</td>
+                                <td>[P. Max] Leads RMC + Sor + Pira + Lim + Jund</td>
+                                <td>10.287</td>
+                                <td>616</td>
+                                <td>R$ 4,65</td>
+                                <td>59</td>
+                                <td>R$ 35,21</td>
+                                <td>R$ 2.077,51</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">[SEARCH] SPAS Piracicaba</td>
-                                <td contenteditable="true">9.866</td>
-                                <td contenteditable="true">381</td>
-                                <td contenteditable="true">R$ 10,67</td>
-                                <td contenteditable="true">37</td>
-                                <td contenteditable="true">R$ 109,82</td>
-                                <td contenteditable="true">R$ 4.063,43</td>
+                                <td>[SEARCH] SPAS Piracicaba</td>
+                                <td>9.866</td>
+                                <td>381</td>
+                                <td>R$ 10,67</td>
+                                <td>37</td>
+                                <td>R$ 109,82</td>
+                                <td>R$ 4.063,43</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">[SEARCH] SPAS - Campinas</td>
-                                <td contenteditable="true">8.599</td>
-                                <td contenteditable="true">212</td>
-                                <td contenteditable="true">R$ 18,83</td>
-                                <td contenteditable="true">28</td>
-                                <td contenteditable="true">R$ 142,61</td>
-                                <td contenteditable="true">R$ 3.992,95</td>
+                                <td>[SEARCH] SPAS - Campinas</td>
+                                <td>8.599</td>
+                                <td>212</td>
+                                <td>R$ 18,83</td>
+                                <td>28</td>
+                                <td>R$ 142,61</td>
+                                <td>R$ 3.992,95</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">[VL] [Search] [Belo Horizonte e Região]</td>
-                                <td contenteditable="true">3.895</td>
-                                <td contenteditable="true">127</td>
-                                <td contenteditable="true">R$ 7,33</td>
-                                <td contenteditable="true">12</td>
-                                <td contenteditable="true">R$ 77,58</td>
-                                <td contenteditable="true">R$ 930,94</td>
+                                <td>[VL] [Search] [Belo Horizonte e Região]</td>
+                                <td>3.895</td>
+                                <td>127</td>
+                                <td>R$ 7,33</td>
+                                <td>12</td>
+                                <td>R$ 77,58</td>
+                                <td>R$ 930,94</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">[SEARCH] SPAS - Jundiai</td>
-                                <td contenteditable="true">8.437</td>
-                                <td contenteditable="true">170</td>
-                                <td contenteditable="true">R$ 17,77</td>
-                                <td contenteditable="true">14</td>
-                                <td contenteditable="true">R$ 215,72</td>
-                                <td contenteditable="true">R$ 3.020,05</td>
+                                <td>[SEARCH] SPAS - Jundiai</td>
+                                <td>8.437</td>
+                                <td>170</td>
+                                <td>R$ 17,77</td>
+                                <td>14</td>
+                                <td>R$ 215,72</td>
+                                <td>R$ 3.020,05</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">[SEARCH] SPAS SÃO PAULO</td>
-                                <td contenteditable="true">7.398</td>
-                                <td contenteditable="true">159</td>
-                                <td contenteditable="true">R$ 9,27</td>
-                                <td contenteditable="true">16</td>
-                                <td contenteditable="true">R$ 92,11</td>
-                                <td contenteditable="true">R$ 1.473,71</td>
+                                <td>[SEARCH] SPAS SÃO PAULO</td>
+                                <td>7.398</td>
+                                <td>159</td>
+                                <td>R$ 9,27</td>
+                                <td>16</td>
+                                <td>R$ 92,11</td>
+                                <td>R$ 1.473,71</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">[SEARCH] SPAS Sorocaba</td>
-                                <td contenteditable="true">5.702</td>
-                                <td contenteditable="true">148</td>
-                                <td contenteditable="true">R$ 13,21</td>
-                                <td contenteditable="true">10</td>
-                                <td contenteditable="true">R$ 195,55</td>
-                                <td contenteditable="true">R$ 1.955,50</td>
+                                <td>[SEARCH] SPAS Sorocaba</td>
+                                <td>5.702</td>
+                                <td>148</td>
+                                <td>R$ 13,21</td>
+                                <td>10</td>
+                                <td>R$ 195,55</td>
+                                <td>R$ 1.955,50</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">[SEARCH] SPAS Limeira</td>
-                                <td contenteditable="true">6.331</td>
-                                <td contenteditable="true">140</td>
-                                <td contenteditable="true">R$ 14,42</td>
-                                <td contenteditable="true">12</td>
-                                <td contenteditable="true">R$ 168,18</td>
-                                <td contenteditable="true">R$ 2.018,12</td>
+                                <td>[SEARCH] SPAS Limeira</td>
+                                <td>6.331</td>
+                                <td>140</td>
+                                <td>R$ 14,42</td>
+                                <td>12</td>
+                                <td>R$ 168,18</td>
+                                <td>R$ 2.018,12</td>
                             </tr>
                             <tr class="total-row">
-                                <td contenteditable="true">Soma</td>
-                                <td contenteditable="true">60.515</td>
-                                <td contenteditable="true">1.953</td>
-                                <td contenteditable="true">R$ 10,95</td>
-                                <td contenteditable="true">188</td>
-                                <td contenteditable="true">R$ 103,89</td>
-                                <td contenteditable="true">R$ 19.532,22</td>
+                                <td>Soma</td>
+                                <td>60.515</td>
+                                <td>1.953</td>
+                                <td>R$ 10,95</td>
+                                <td>188</td>
+                                <td>R$ 103,89</td>
+                                <td>R$ 19.532,22</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="note-text" contenteditable="true">
+                <div class="note-text">
                     Conversões = Qtd. de pessoas que preencheram o formulário da Landing Page ou enviaram mensagem através do botão do Google via Whatsapp.<br>
                     *Jundiaí e Limeira o Google não está conseguindo entregar o orçamento inteiro (baixo volume de buscas).
                 </div>
@@ -1334,7 +1324,7 @@
 
             <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title" contenteditable="true">
+                    <div class="card-title">
                         <div class="card-title-icon" style="background: var(--google-color)"></div>
                         Comparativo MoM (Histórico)
                     </div>
@@ -1343,110 +1333,110 @@
                     <table class="premium-table">
                         <thead>
                             <tr>
-                                <th contenteditable="true">Mês</th>
-                                <th contenteditable="true">Impressões</th>
-                                <th contenteditable="true">Cliques</th>
-                                <th contenteditable="true">Custo por Clique</th>
-                                <th contenteditable="true">Conversão</th>
-                                <th contenteditable="true">Custo por Conversão</th>
-                                <th contenteditable="true">Investimento</th>
+                                <th>Mês</th>
+                                <th>Impressões</th>
+                                <th>Cliques</th>
+                                <th>Custo por Clique</th>
+                                <th>Conversão</th>
+                                <th>Custo por Conversão</th>
+                                <th>Investimento</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td contenteditable="true">Agosto</td>
-                                <td contenteditable="true">143.494</td>
-                                <td contenteditable="true">5.457</td>
-                                <td contenteditable="true">R$ 4,55</td>
-                                <td contenteditable="true">29</td>
-                                <td contenteditable="true">R$ 856,36</td>
-                                <td contenteditable="true">R$ 24.834,34</td>
+                                <td>Agosto</td>
+                                <td>143.494</td>
+                                <td>5.457</td>
+                                <td>R$ 4,55</td>
+                                <td>29</td>
+                                <td>R$ 856,36</td>
+                                <td>R$ 24.834,34</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Setembro</td>
-                                <td contenteditable="true">145.331</td>
-                                <td contenteditable="true">4.888</td>
-                                <td contenteditable="true">R$ 5,14</td>
-                                <td contenteditable="true">33</td>
-                                <td contenteditable="true">R$ 761,74</td>
-                                <td contenteditable="true">R$ 25.137,44</td>
+                                <td>Setembro</td>
+                                <td>145.331</td>
+                                <td>4.888</td>
+                                <td>R$ 5,14</td>
+                                <td>33</td>
+                                <td>R$ 761,74</td>
+                                <td>R$ 25.137,44</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Outubro</td>
-                                <td contenteditable="true">151.672</td>
-                                <td contenteditable="true">4.891</td>
-                                <td contenteditable="true">R$ 5,11</td>
-                                <td contenteditable="true">121</td>
-                                <td contenteditable="true">R$ 206,73</td>
-                                <td contenteditable="true">R$ 25.015,10</td>
+                                <td>Outubro</td>
+                                <td>151.672</td>
+                                <td>4.891</td>
+                                <td>R$ 5,11</td>
+                                <td>121</td>
+                                <td>R$ 206,73</td>
+                                <td>R$ 25.015,10</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Novembro</td>
-                                <td contenteditable="true">135.476</td>
-                                <td contenteditable="true">4.640</td>
-                                <td contenteditable="true">R$ 5,76</td>
-                                <td contenteditable="true">180</td>
-                                <td contenteditable="true">R$ 148,45</td>
-                                <td contenteditable="true">R$ 26.720,37</td>
+                                <td>Novembro</td>
+                                <td>135.476</td>
+                                <td>4.640</td>
+                                <td>R$ 5,76</td>
+                                <td>180</td>
+                                <td>R$ 148,45</td>
+                                <td>R$ 26.720,37</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Dezembro</td>
-                                <td contenteditable="true">81.241</td>
-                                <td contenteditable="true">4.701</td>
-                                <td contenteditable="true">R$ 6,89</td>
-                                <td contenteditable="true">128</td>
-                                <td contenteditable="true">R$ 158,07</td>
-                                <td contenteditable="true">R$ 20.232,64</td>
+                                <td>Dezembro</td>
+                                <td>81.241</td>
+                                <td>4.701</td>
+                                <td>R$ 6,89</td>
+                                <td>128</td>
+                                <td>R$ 158,07</td>
+                                <td>R$ 20.232,64</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Janeiro 26</td>
-                                <td contenteditable="true">103.776</td>
-                                <td contenteditable="true">5.381</td>
-                                <td contenteditable="true">R$ 6,91</td>
-                                <td contenteditable="true">146</td>
-                                <td contenteditable="true">R$ 141,31</td>
-                                <td contenteditable="true">R$ 20.639,09</td>
+                                <td>Janeiro 26</td>
+                                <td>103.776</td>
+                                <td>5.381</td>
+                                <td>R$ 6,91</td>
+                                <td>146</td>
+                                <td>R$ 141,31</td>
+                                <td>R$ 20.639,09</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Fevereiro 26</td>
-                                <td contenteditable="true">69.926</td>
-                                <td contenteditable="true">3.832</td>
-                                <td contenteditable="true">R$ 10,46</td>
-                                <td contenteditable="true">149</td>
-                                <td contenteditable="true">R$ 151,93</td>
-                                <td contenteditable="true">R$ 22.638,25</td>
+                                <td>Fevereiro 26</td>
+                                <td>69.926</td>
+                                <td>3.832</td>
+                                <td>R$ 10,46</td>
+                                <td>149</td>
+                                <td>R$ 151,93</td>
+                                <td>R$ 22.638,25</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Março 26</td>
-                                <td contenteditable="true">66.456</td>
-                                <td contenteditable="true">2.979</td>
-                                <td contenteditable="true">R$ 7,51</td>
-                                <td contenteditable="true">180</td>
-                                <td contenteditable="true">R$ 124,23</td>
-                                <td contenteditable="true">R$ 22.361,22</td>
+                                <td>Março 26</td>
+                                <td>66.456</td>
+                                <td>2.979</td>
+                                <td>R$ 7,51</td>
+                                <td>180</td>
+                                <td>R$ 124,23</td>
+                                <td>R$ 22.361,22</td>
                             </tr>
                             <tr>
-                                <td contenteditable="true">Abril 26</td>
-                                <td contenteditable="true">69.847</td>
-                                <td contenteditable="true">2.451</td>
-                                <td contenteditable="true">R$ 8,49</td>
-                                <td contenteditable="true">248</td>
-                                <td contenteditable="true">R$ 83,86</td>
-                                <td contenteditable="true">R$ 20.797,70</td>
+                                <td>Abril 26</td>
+                                <td>69.847</td>
+                                <td>2.451</td>
+                                <td>R$ 8,49</td>
+                                <td>248</td>
+                                <td>R$ 83,86</td>
+                                <td>R$ 20.797,70</td>
                             </tr>
                             <tr class="total-row">
-                                <td contenteditable="true">Maio 26</td>
-                                <td contenteditable="true">60.515</td>
-                                <td contenteditable="true">1.953</td>
-                                <td contenteditable="true">R$ 10,95</td>
-                                <td contenteditable="true">188</td>
-                                <td contenteditable="true">R$ 103,89</td>
-                                <td contenteditable="true">R$ 19.532,22</td>
+                                <td>Maio 26</td>
+                                <td>60.515</td>
+                                <td>1.953</td>
+                                <td>R$ 10,95</td>
+                                <td>188</td>
+                                <td>R$ 103,89</td>
+                                <td>R$ 19.532,22</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="note-text" contenteditable="true">
+                <div class="note-text">
                     Conversões = Qtd. de pessoas que preencheram o formulário da Landing Page ou enviaram mensagem através do botão do Google via Whatsapp.<br>
                     *Aumento no número de conversões por conta da reativação do botão de whatsapp do Google Ads em Outubro/25.
                 </div>
@@ -1457,20 +1447,20 @@
         <section id="google-keywords" class="section-block">
             <div class="dash-header">
                 <div>
-                    <h2 contenteditable="true">Palavras-Chaves Google Ads</h2>
-                    <p contenteditable="true">Principais termos de busca que geraram cliques e exibições dos anúncios</p>
+                    <h2>Palavras-Chaves Google Ads</h2>
+                    <p>Principais termos de busca que geraram cliques e exibições dos anúncios</p>
                 </div>
             </div>
 
             <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title" contenteditable="true">
+                    <div class="card-title">
                         <div class="card-title-icon" style="background: var(--google-color)"></div>
                         Lista de Palavras-Chaves
                     </div>
                 </div>
                 <div class="keyword-container" id="keywordContainer">
-                    <!-- Javascript will load the keyword list to prevent massive HTML bloat -->
+                    <!-- Javascript will load the keyword list -->
                 </div>
             </div>
         </section>
@@ -1479,14 +1469,14 @@
         <section id="competitors" class="section-block">
             <div class="dash-header">
                 <div>
-                    <h2 contenteditable="true">Análise de Concorrentes</h2>
-                    <p contenteditable="true">Posicionamento e mapeamento dos concorrentes no mercado digital</p>
+                    <h2>Análise de Concorrentes</h2>
+                    <p>Posicionamento e mapeamento dos concorrentes no mercado digital</p>
                 </div>
             </div>
 
             <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title" contenteditable="true">
+                    <div class="card-title">
                         <div class="card-title-icon" style="background: var(--accent)"></div>
                         Desempenho Competitivo
                     </div>
@@ -1501,14 +1491,14 @@
         <section id="investimentos" class="section-block">
             <div class="dash-header">
                 <div>
-                    <h2 contenteditable="true">Investimento Total</h2>
-                    <p contenteditable="true">Resumo financeiro dos investimentos em mídia paga - Maio 2026</p>
+                    <h2>Investimento Total</h2>
+                    <p>Resumo financeiro dos investimentos em mídia paga - Maio 2026</p>
                 </div>
             </div>
 
             <div class="glass-card">
                 <div class="card-header">
-                    <div class="card-title" contenteditable="true">
+                    <div class="card-title">
                         <div class="card-title-icon" style="background: var(--accent)"></div>
                         Distribuição do Orçamento
                     </div>
@@ -1516,19 +1506,19 @@
                 
                 <div class="kpi-grid" style="width: 100%; margin-top: 1rem;">
                     <div class="kpi-card" style="--accent: var(--meta-color)">
-                        <div class="kpi-label" contenteditable="true">Investimento Meta Ads</div>
-                        <div class="kpi-value" contenteditable="true">R$ 26.353,41</div>
-                        <div class="kpi-subtext" contenteditable="true">Maio 2026</div>
+                        <div class="kpi-label">Investimento Meta Ads</div>
+                        <div class="kpi-value">R$ 26.353,41</div>
+                        <div class="kpi-subtext">Maio 2026</div>
                     </div>
                     <div class="kpi-card" style="--accent: var(--google-color)">
-                        <div class="kpi-label" contenteditable="true">Investimento Google Ads</div>
-                        <div class="kpi-value" contenteditable="true">R$ 19.532,22</div>
-                        <div class="kpi-subtext" contenteditable="true">Maio 2026</div>
+                        <div class="kpi-label">Investimento Google Ads</div>
+                        <div class="kpi-value">R$ 19.532,22</div>
+                        <div class="kpi-subtext">Maio 2026</div>
                     </div>
                     <div class="kpi-card" style="--accent: var(--accent)">
-                        <div class="kpi-label" contenteditable="true">Total Investido</div>
-                        <div class="kpi-value" contenteditable="true">R$ 45.885,63</div>
-                        <div class="kpi-subtext" contenteditable="true">Retorno sobre investimento em leads</div>
+                        <div class="kpi-label">Total Investido</div>
+                        <div class="kpi-value">R$ 45.885,63</div>
+                        <div class="kpi-subtext">Retorno sobre investimento em leads</div>
                     </div>
                 </div>
             </div>
@@ -1537,17 +1527,17 @@
         <!-- FINALIZATION SECTION -->
         <section id="finalizacao" class="section-block">
             <div class="final-presentation-block">
-                <h2 class="thank-you-title" contenteditable="true">Muito obrigado pela parceria!</h2>
+                <h2 class="thank-you-title">Muito obrigado pela parceria!</h2>
                 
                 <div class="final-branding-card" style="background: transparent; border: none; padding: 0;">
                     <!-- Closing Signature Block -->
                     <div class="closing-footer-layout">
                         <img src="logo-howli.png" style="height: 35px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(73, 51, 90, 0.3));" alt="Howli Logo">
-                        <div class="footer-logo-mike" style="margin-left: -0.5rem;" contenteditable="true">HOWLI</div>
+                        <div class="footer-logo-mike" style="margin-left: -0.5rem;">HOWLI</div>
                         <div class="closing-divider"></div>
                         <div style="text-align: left; font-size: 0.8rem; color: var(--text-muted);">
-                            <strong style="color: #fff; display: block; margin-bottom: 0.25rem;" contenteditable="true">AQUALAX</strong>
-                            <span contenteditable="true">Gestão de Mídia & Analytics | Maio 2026</span>
+                            <strong style="color: #fff; display: block; margin-bottom: 0.25rem;">AQUALAX</strong>
+                            <span>Gestão de Mídia & Analytics | Maio 2026</span>
                         </div>
                     </div>
                 </div>
@@ -1573,8 +1563,6 @@
     // Navigation routing logic
     document.querySelectorAll('.nav-item').forEach(item => {
         item.addEventListener('click', function(e) {
-            if (e.target.hasAttribute('contenteditable') || e.target.closest('[contenteditable="true"]')) return;
-            
             e.preventDefault();
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             this.classList.add('active');
@@ -1589,67 +1577,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
-
-    // Drag and Drop ordering for navigation links
-    let dragSourceEl = null;
-
-    function handleDragStart(e) {
-        dragSourceEl = e.currentTarget;
-        e.dataTransfer.effectAllowed = 'move';
-        e.dataTransfer.setData('text/html', e.currentTarget.innerHTML);
-        e.dataTransfer.setData('text/plain', e.currentTarget.getAttribute('data-target'));
-        e.currentTarget.style.opacity = '0.4';
-    }
-
-    function handleDragOver(e) {
-        if (e.preventDefault) {
-            e.preventDefault();
-        }
-        e.currentTarget.classList.add('drag-over');
-        e.dataTransfer.dropEffect = 'move';
-        return false;
-    }
-
-    function handleDragLeave(e) {
-        e.currentTarget.classList.remove('drag-over');
-    }
-
-    function handleDrop(e) {
-        if (e.stopPropagation) {
-            e.stopPropagation();
-        }
-        
-        if (dragSourceEl !== e.currentTarget) {
-            const sourceHTML = dragSourceEl.innerHTML;
-            const sourceTarget = dragSourceEl.getAttribute('data-target');
-            
-            dragSourceEl.innerHTML = e.currentTarget.innerHTML;
-            dragSourceEl.setAttribute('data-target', e.currentTarget.getAttribute('data-target'));
-            
-            e.currentTarget.innerHTML = sourceHTML;
-            e.currentTarget.setAttribute('data-target', sourceTarget);
-            
-            const wasActive = e.currentTarget.classList.contains('active');
-            const sourceActive = dragSourceEl.classList.contains('active');
-            
-            if (wasActive) {
-                e.currentTarget.classList.remove('active');
-                dragSourceEl.classList.add('active');
-            } else if (sourceActive) {
-                dragSourceEl.classList.remove('active');
-                e.currentTarget.classList.add('active');
-            }
-        }
-        e.currentTarget.classList.remove('drag-over');
-        return false;
-    }
-
-    function handleDragEnd(e) {
-        e.currentTarget.style.opacity = '1';
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.classList.remove('drag-over');
-        });
-    }
 
     // Load Keywords list programmatically
     const rawKeywords = "banheira com hidro e aquecedor, banheira com Hidro em belo horizonte, banheira com instalação inclusa, banheira de canto, banheira de canto com hidro, banheira de hidro 4 lugares, banheira de hidro 4 lugares, banheira de hidro 4 lugares, banheira de hidro 4 lugares, banheira de hidro 4 lugares, banheira de hidro 6 lugares, banheira de hidro 6 lugares, banheira de hidro 6 lugares, banheira de hidro 6 lugares, banheira de hidro 6 lugares, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidro externa, banheira de hidromassagem, banheira de hidromassagem, banheira de hidromassagem, banheira de hidromassagem ofurô, banheira de hidromassagem ofurô, banheira de hidromassagem ofurô, banheira de hidromassagem ofurô, banheira de hidromassagem ofurô, banheira de hidromassagem preço, banheira de hidromassagem valor, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de hidromassagens area externa, banheira de luxo, banheira dupla, banheira externa, banheira externa, banheira externa, banheira externa, banheira externa, banheira hidro, banheira hidro externa, banheira hidro externa, banheira hidro externa, banheira hidro externa, banheira hidro externa, banheira hidro externa, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem, banheira hidromassagem area externa, banheira individual, banheira infantil de hidromassagem, banheira jacuzzi, banheira jacuzzi, banheira jacuzzi, banheira jacuzzi, banheira jacuzzi, banheira ofuro, banheira para área externa, banheira para casa, banheira pronta entrega, banheira redonda, banheira redonda para casal, banheira retangular, banheira retangular com aquecimento, banheira spa, banheira spa, banheira spa, banheira spa, banheira spa, banheira spa, banheira spa externa, banheira spa externa, banheira spa externa, banheira spa externa, banheira spa externa, banheira spa externa, banheira vitoriana, comprar banheira de hidromassagem, comprar jacuzzi, comprar jacuzzi, comprar jacuzzi, comprar jacuzzi, comprar jacuzzi, hidro jacuzzi, hidro jacuzzi, hidro jacuzzi, hidro jacuzzi, hidro jacuzzi, hidro jacuzzi, spa hidro, spa hidro, spa hidro, spa hidro, spa hidro, spa hidro, hidromassagem completa, hidromassagem completa, hidromassagem completa, hidromassagem completa, hidromassagem completa, hidromassagem completa, hidromassagem externa, hidromassagem externa, hidromassagem externa, hidromassagem externa, hidromassagem externa, hidromassagem externa, jacuzzi, jacuzzi, jacuzzi, jacuzzi, jacuzzi, jacuzzi, jacuzzi 2 pessoas, jacuzzi 2 pessoas, jacuzzi 2 pessoas, jacuzzi 2 pessoas, jacuzzi 2 pessoas, jacuzzi 4 lugares, jacuzzi 4 lugares, jacuzzi 4 lugares, jacuzzi 4 lugares, jacuzzi 4 lugares, jacuzzi 4 pessoas, jacuzzi 4 pessoas, jacuzzi 4 pessoas, jacuzzi 4 pessoas, jacuzzi 4 pessoas, jacuzzi 6 lugares, jacuzzi 6 lugares, jacuzzi 6 lugares, jacuzzi 6 lugares, jacuzzi 6 lugares, jacuzzi 6 pessoas, jacuzzi 6 pessoas, jacuzzi 6 pessoas, jacuzzi 6 pessoas, jacuzzi 6 pessoas, jacuzzi 8 lugares, jacuzzi 8 lugares, jacuzzi 8 lugares, jacuzzi 8 lugares, jacuzzi 8 lugares, jacuzzi 8 pessoas, jacuzzi 8 pessoas, jacuzzi 8 pessoas, jacuzzi 8 pessoas, jacuzzi 8 pessoas, jacuzzi em campinas, jacuzzi externa, jacuzzi externa, jacuzzi externa, jacuzzi externa, jacuzzi externa, jacuzzi jundiai, jacuzzi limeira, jacuzzi piracicaba, jacuzzi preço, jacuzzi preço, jacuzzi preço, jacuzzi preço, jacuzzi preço, jacuzzi sorocaba, jacuzzi spa, jacuzzi spa, jacuzzi spa, jacuzzi spa, jacuzzi spa, melhores banheiras para residência, ofurô, ofuro 4 lugares, ofuro 4 lugares, ofuro 4 lugares, ofuro 4 lugares, ofuro 4 lugares, ofuro 4 pessoas, ofuro 4 pessoas, ofuro 4 pessoas, ofuro 4 pessoas, ofuro 4 pessoas, ofuro 6 pessoas, ofuro 6 pessoas, ofuro 6 pessoas, ofuro 6 pessoas, ofuro 6 pessoas, ofuro 8 lugares, ofuro 8 lugares, ofuro 8 lugares, ofuro 8 lugares, ofuro 8 lugares, ofuro 8 pessoas, ofuro 8 pessoas, ofuro 8 pessoas, ofuro 8 pessoas, ofuro 8 pessoas, ofuro area externa, ofuro area externa, ofuro area externa, ofuro area externa, ofuro area externa, ofuro area externa, ofuro banheira, ofuro com hidro e aquecedor, ofuro com hidro e aquecedor, ofuro com hidro e aquecedor, ofuro com hidro e aquecedor, ofuro com hidro e aquecedor, ofurô de madeira, ofuro em campinas, ofuro externo, ofuro externo, ofuro externo, ofuro externo, ofuro externo, ofurô externo, ofuro externo preço, ofuro externo preço, ofuro externo preço, ofuro externo preço, ofuro externo preço, ofuro jundiai, ofuro limeira, ofuro piracicaba, ofuro preço, ofuro preço, ofuro preço, ofuro preço, ofuro preço, ofuro sorocaba, ofuro valor, ofuro valor, ofuro valor, ofuro valor, ofuro valor, ofuro valor, onde comprar banheira spa, orçamento banheira de hidromassagem, spa banheira, spa banheira, spa banheira, spa banheira, spa banheira, spa banheira, Spa com Hidro, spa com hidro e aquecedor, spa com hidro e aquecedor, spa com hidro e aquecedor, spa com hidro e aquecedor, spa com hidro e aquecedor, spa com hidro e aquecedor, spa hidro, spa hidro, spa hidro, spa hidro, spa hidro, spa hidro, spa ofuro, spas em campinas, spas jundiai, spas limeira, spas piracicaba, spas sorocaba, valor de ofurô, valor de ofurô, valor de ofurô, valor de ofurô, valor de ofurô";
