@@ -400,6 +400,22 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        .table-scroll-hint {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(73, 51, 90, 0.1);
+            border: 1px solid rgba(73, 51, 90, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            width: fit-content;
+            font-weight: 500;
+        }
+
         .premium-table {
             width: 100%;
             border-collapse: collapse;
@@ -660,7 +676,7 @@
             /* Transform sidebar to sticky horizontal top bar */
             .sidebar {
                 height: auto;
-                position: sticky;
+                position: relative;
                 top: 0;
                 padding: 1rem;
                 flex-direction: column;
@@ -780,6 +796,10 @@
                 min-width: 680px; /* Forces table layout to stay neat and scroll horizontally */
             }
 
+            .table-scroll-hint {
+                display: inline-flex !important;
+            }
+
             .premium-table th, .premium-table td {
                 padding: 0.85rem 0.6rem !important;
                 font-size: 0.9rem !important;
@@ -837,7 +857,6 @@
         <div>
             <div class="logo-area">
                 <img src="logo-howli.png" class="logo-img" alt="Howli Logo">
-                <div class="logo-text">HOWLI</div>
             </div>
             
             <nav>
@@ -944,6 +963,7 @@
                         Indicadores de Desempenho por Região
                     </div>
                 </div>
+                <div class="table-scroll-hint">↔ Deslize para o lado para ver mais</div>
                 <div class="table-container">
                     <table class="premium-table">
                         <thead>
@@ -1025,6 +1045,7 @@
                         Comparativo MoM 2026
                     </div>
                 </div>
+                <div class="table-scroll-hint">↔ Deslize para o lado para ver mais</div>
                 <div class="table-container">
                     <table class="premium-table">
                         <thead>
@@ -1220,6 +1241,7 @@
                         Desempenho por Campanha
                     </div>
                 </div>
+                <div class="table-scroll-hint">↔ Deslize para o lado para ver mais</div>
                 <div class="table-container">
                     <table class="premium-table">
                         <thead>
@@ -1331,6 +1353,7 @@
                         Comparativo MoM (Histórico)
                     </div>
                 </div>
+                <div class="table-scroll-hint">↔ Deslize para o lado para ver mais</div>
                 <div class="table-container">
                     <table class="premium-table">
                         <thead>
